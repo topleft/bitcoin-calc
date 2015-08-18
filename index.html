@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="bitcoinCalculator" ng-controller="bitcoinController">
+<!-- define our angular app and set the controller -->
+<html ng-app="bitcoinCalculator" ng-controller="bitcoinController">
   <head>
+    <title>Bitcoin Investment Calculator</title>
     <meta charset="utf-8">
-    <title>Untitled</title>
-
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- stylesheets -->
+    <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- scripts -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+
+    <style>
+      .number {font-weight: bold;}
+    </style>
   </head>
   <body>
-
-
-
     <div class="jumbotron">
-      <h1>BitCoin Calculator</h1>
-
-      <h3>How many bitcoins do you have?</h3>
-
-      <input type="number" ng-model="somenumber" placeholder="20">
-      <br>
-      <br>
-      <h4>You have <span class="number">{{somenumber}}</span> Bitcoins - nice!</h4>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>Bitcoin Investment<br>Calculator</h1>
+          <br><br>
+          <form role="form">
+            <label for="starting-investment">Initial Investment (USD)</label>
+            <input type="number" class="form-control">
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <br><br>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Price of 1 BTC</th>
+                <th>Starting Investment</th>
+                <th>Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>price</td>
+                <td>new amt</td>
+                <td>new profit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-    <!-- script links  -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/ang.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-
-    <script type="text/javascript">
-      var bitcoinCalculator = angular.module("bitcoinCalculator", []);
-      bitcoinCalculator.controller('bitcoinController', [ '$scope', function ($scope){
-        $scope.somenumber = 0;
-      }]);
-    </script>
-
   </body>
 </html>
