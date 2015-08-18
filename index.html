@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="bitcoinCalculator" ng-controller="bitcoinController">
   <head>
     <meta charset="utf-8">
     <title>Untitled</title>
@@ -10,17 +10,31 @@
   </head>
   <body>
 
-    <h3>How many bitcoins do you have?</h3>
 
-    <input type="number" ng-model="somenumber" placeholder="20">
-    <br>
-    <br>
-    <h4>You have <span class="number">{{somenumber}}</span> Bitcoins - nice!</h4>
+
+    <div class="jumbotron">
+      <h1>BitCoin Calculator</h1>
+
+      <h3>How many bitcoins do you have?</h3>
+
+      <input type="number" ng-model="somenumber" placeholder="20">
+      <br>
+      <br>
+      <h4>You have <span class="number">{{somenumber}}</span> Bitcoins - nice!</h4>
+    </div>
 
     <!-- script links  -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
+    <script type="text/javascript">
+      var bitcoinCalculator = angular.module("bitcoinCalculator", []);
+      bitcoinCalculator.controller('bitcoinController', [ '$scope', function ($scope){
+        $scope.somenumber = 0;
+      }]);
+    </script>
+
   </body>
 </html>
