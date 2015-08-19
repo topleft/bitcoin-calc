@@ -22,14 +22,16 @@
           <br><br>
           <form role="form">
             <label for="starting-investment">Initial Investment (USD)</label>
-            <input type="number" class="form-control">
+            <input type="number" ng-model="initialAmt" class="form-control" placeholder="{{initialAmt}}">
+            <label for="starting-investment">Forecasted Price</label>
+            <input type="number" ng-model="forecastPrice" class="form-control" placeholder="{{forecastPrice}}">
           </form>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-7">
           <br><br>
-          <p>Current Price (USD): ${{currRate}}</p>
+          <p>Current Price (USD): ${{currRate | currency}}</p>
           <br><br>
           <table class="table table-bordered">
             <thead>
@@ -41,29 +43,10 @@
             </thead>
             <tbody>
               <tr>
-                <td>$1000</td>
-                <td>${{newAmt(1000)}}</td>
-                <td>${{profit(1000)}}</td>
+                <td>{{forecastPrice}}</td>
+                <td>{{newAmt(forecastPrice) | currency}}</td>
+                <td>{{profit(forecastPrice) | currency}}</td>
               </tr>
-              <tr>
-                <td>$5,000</td>
-                <td>{{ newAmt(5000) }}</td>
-                <td>{{ profit(5000) }}</td>
-              </tr>
-              <tr>
-                <td>$10,000</td>
-                <td>{{ newAmt(10000) }}</td>
-                <td>{{ profit(10000) }}</td>
-              </tr>
-              <tr>
-                <td>$25,000</td>
-                <td>{{ newAmt(25000) }}</td>
-                <td>{{ profit(25000) }}</td>
-              </tr>
-              <tr>
-                <td>$50,000</td>
-                <td>{{ newAmt(50000) }}</td>
-                <td>{{ profit(50000) }}</td>
               </tr>
             </tbody>
           </table>

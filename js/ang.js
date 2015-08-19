@@ -12,6 +12,7 @@
           }
         }
         $scope.initialAmt = 5000;
+        $scope.forecastPrice = 500;
         $scope.newAmt = function(forecastPrice){return $scope.initialAmt/$scope.currRate * forecastPrice}
         $scope.profit = function(forecastPrice){return ($scope.initialAmt/$scope.currRate *forecastPrice)-$scope.initialAmt}
       })
