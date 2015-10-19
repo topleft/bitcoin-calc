@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Price of 1 BTC</th>
+      <th>Adjusted Worth</th>
+      <th>Profit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{bitcoin.forecastPrice}}</td>
+      <td>{{bitcoin.newAmt(bitcoin.initialAmt, bitcoin.currRate, bitcoin.forecastPrice) | currency}}</td>
+      <td>{{bitcoin.profit(bitcoin.initialAmt, bitcoin.currRate, bitcoin.forecastPrice) | currency}}</td>
+    </tr>
+    </tr>
+  </tbody>
+</table>
