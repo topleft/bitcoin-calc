@@ -7,11 +7,8 @@ angular.module('directives').directive('outputTemplate', ['bitcoinFactory',funct
 			bitcoin: '='
 		},
 		controller: function($scope){
-
-	
       $scope.bitcoin.newAmt = bitcoinFactory.calcNewAmt;
       $scope.bitcoin.profit = bitcoinFactory.calcProfit; 
-
 		}
 	};
 }]);
