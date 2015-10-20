@@ -8,52 +8,39 @@
     <!-- stylesheets -->
     <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!-- scripts -->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
   </head>
 
   <body>
+  
     <div class="jumbotron">
       <div class="row">
         <div class="col-sm-12">
           <h1>Bitcoin Investment<br>Calculator</h1>
           <br><br>
-          <form role="form">
-            <label for="starting-investment">Initial Investment (USD)</label>
-            <input type="number" ng-model="initialAmt" class="form-control" placeholder="{{initialAmt}}">
-            <label for="starting-investment">Forecasted Price</label>
-            <input type="number" ng-model="forecastPrice" class="form-control" placeholder="{{forecastPrice}}">
-          </form>
+          <input-template bitcoin='bitcoin'></input-template>
         </div>
       </div>
+      
       <div class="row">
         <div class="col-sm-7">
           <br><br>
-          <p>Current Price (USD): ${{currRate | currency}}</p>
+          <api-data-template bitcoin='bitcoin'></api-data-template>
           <br><br>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Price of 1 BTC</th>
-                <th>Adjusted Worth</th>
-                <th>Profit</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{{forecastPrice}}</td>
-                <td>{{newAmt(forecastPrice) | currency}}</td>
-                <td>{{profit(forecastPrice) | currency}}</td>
-              </tr>
-              </tr>
-            </tbody>
-          </table>
+          <output-template bitcoin='bitcoin'></output-template>
         </div>
       </div>
     </div>
+
+    <!-- scripts -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+
     <script type="text/javascript" src="js/ang.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/services/bitcoinFactory.js"></script>
+    <script type="text/javascript" src="js/input/input-directive.js"></script>
+    <script type="text/javascript" src="js/api-data/api-data-directive.js"></script>
+    <script type="text/javascript" src="js/output/output-directive.js"></script>
   </body>
 </html>
